@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
 
     public void ExitMenu()
     {
+        GameManager.Instance.SetGamePaused(false);
         SceneManager.LoadScene("MainMenu");
     }
 }
