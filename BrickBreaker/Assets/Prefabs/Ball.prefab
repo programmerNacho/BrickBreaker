@@ -135,6 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementImpulse: 8
   initialMovementDirection: {x: 0, y: 1}
+  ballWall: {fileID: 8300000, guid: f0a6f3aedaecaca4aa2e1a9aa96464bf, type: 3}
 --- !u!96 &1860646524
 TrailRenderer:
   serializedVersion: 2

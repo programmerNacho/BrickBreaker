@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    [Header("Movement")]
     [SerializeField]
     private float movementImpulse = 5f;
     [SerializeField]
     private Vector2 initialMovementDirection = Vector2.up;
+    [Header("Audio")]
+    [SerializeField]
+    private AudioClip ballWall;
 
     private Vector2 movementDirection;
     private new Rigidbody2D rigidbody2D;
@@ -38,6 +42,7 @@ public class Ball : MonoBehaviour
             targetPosition.x = minX;
             transform.position = targetPosition;
             SetMovementDirection(movementDirection);
+            SoundManager.Instance.PlaySoundEffect(ballWall);
         }
         else if(transform.position.x > maxX)
         {
@@ -47,6 +52,7 @@ public class Ball : MonoBehaviour
             targetPosition.x = maxX;
             transform.position = targetPosition;
             SetMovementDirection(movementDirection);
+            SoundManager.Instance.PlaySoundEffect(ballWall);
         }
         else if(transform.position.y > maxY)
         {
@@ -56,6 +62,7 @@ public class Ball : MonoBehaviour
             targetPosition.y = maxY;
             transform.position = targetPosition;
             SetMovementDirection(movementDirection);
+            SoundManager.Instance.PlaySoundEffect(ballWall);
         }
         else if(transform.position.y < minY)
         {

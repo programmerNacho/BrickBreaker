@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     {
         balls = new List<Ball>(FindObjectsOfType<Ball>());
         bricks = new List<Brick>(FindObjectsOfType<Brick>());
+        gamePaused = false;
+        SetGamePaused(gamePaused);
     }
 
     private void Update()

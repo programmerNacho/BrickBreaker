@@ -170,3 +170,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 20
+  ballPaddle: {fileID: 8300000, guid: d7b94e05a9ba5e04b8433493f222e877, type: 3}

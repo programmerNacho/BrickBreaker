@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5861850731615456932}
   - component: {fileID: 5861850731615456933}
   m_Layer: 0
-  m_Name: SimpleBrick
+  m_Name: Brick_Simple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,3 +142,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc0cdb7a4c6ecad4eafe0ffdb7611d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballBrick: {fileID: 8300000, guid: 7f9403ad262715f4994f66bc8d445f42, type: 3}

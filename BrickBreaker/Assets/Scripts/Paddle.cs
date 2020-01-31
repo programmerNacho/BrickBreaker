@@ -6,6 +6,8 @@ public class Paddle : MonoBehaviour
 {
     [SerializeField]
     private float movementSpeed = 8f;
+    [SerializeField]
+    private AudioClip ballPaddle;
 
     private SpriteRenderer spriteRenderer;
 
@@ -38,6 +40,7 @@ public class Paddle : MonoBehaviour
             float maxDistanceX = Mathf.Abs(rightSideX - leftSideX);
             float ballDistanceToLeftSide = Mathf.Abs(ball.transform.position.x - leftSideX);
             ball.SetMovementDirection(Vector2.Lerp(maxDirectionLeft, maxDirectionRight, ballDistanceToLeftSide / maxDistanceX).normalized);
+            SoundManager.Instance.PlaySoundEffect(ballPaddle);
         }
     }
 }
