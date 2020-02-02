@@ -12,6 +12,7 @@ public class Brick : MonoBehaviour
         if(collision.gameObject.GetComponent<Ball>())
         {
             SoundManager.Instance.PlaySoundEffect(ballBrick);
+            Camera.main.GetComponentInParent<CameraShaker>().Shake();
             GameManager.Instance.DestroyBrick(this);
         }
     }
