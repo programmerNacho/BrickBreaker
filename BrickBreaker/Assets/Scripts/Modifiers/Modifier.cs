@@ -4,6 +4,14 @@ using UnityEngine;
 
 public abstract class Modifier : MonoBehaviour
 {
+    [SerializeField]
+    protected Modifier cancelModifier;
+
+    public Modifier GetCancelModifier()
+    {
+        return cancelModifier;
+    }
+
     public abstract void Activate();
     public virtual void DeActivate()
     {

@@ -28,6 +28,17 @@ public class ModifierSystem : MonoBehaviour
     public void AddModifier(Modifier modifierPrefab)
     {
         Modifier modifierCreated = Instantiate(modifierPrefab, transform);
+        if(modifierCreated.GetCancelModifier() != null)
+        {
+            foreach (Modifier m in modifiersList)
+            {
+                if(m.GetType() == modifierCreated.GetCancelModifier().GetType())
+                {
+                    m.DeActivate();
+                    break;
+                }
+            }
+        }
         modifierCreated.Activate();
         modifiersList.Add(modifierCreated);
     }

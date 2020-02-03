@@ -9,8 +9,9 @@ public class MoreBallsModifier : Modifier
 
     public override void Activate()
     {
-        Paddle paddle = FindObjectOfType<Paddle>();
+        Paddle paddle = GameManager.Instance.GetPaddle();
         Ball ball = Instantiate(ballPrefab, paddle.transform.position + new Vector3(0f, 1f), Quaternion.identity);
+        GameManager.Instance.AddBall(ball);
         DeActivate();
     }
 

@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     private List<Ball> balls;
     private List<Brick> bricks;
+    private Paddle paddle;
 
     private bool gamePaused = false;
 
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         balls = new List<Ball>(FindObjectsOfType<Ball>());
         bricks = new List<Brick>(FindObjectsOfType<Brick>());
+        paddle = FindObjectOfType<Paddle>();
         gamePaused = false;
         SetGamePaused(gamePaused);
     }
@@ -38,6 +40,16 @@ public class GameManager : MonoBehaviour
         {
             SetGamePaused(!gamePaused);
         }
+    }
+
+    public Paddle GetPaddle()
+    {
+        return paddle;
+    }
+
+    public void AddBall(Ball ball)
+    {
+        balls.Add(ball);
     }
 
     public void DestroyBall(Ball ball)
