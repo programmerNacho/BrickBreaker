@@ -143,3 +143,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballBrick: {fileID: 8300000, guid: 7f9403ad262715f4994f66bc8d445f42, type: 3}
+  brickParticlePrefab: {fileID: 6485366943046472792, guid: 0af6a79280c1e01418c1a752d836505d,
+    type: 3}
