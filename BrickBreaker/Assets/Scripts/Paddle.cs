@@ -10,10 +10,12 @@ public class Paddle : MonoBehaviour
     private AudioClip ballPaddle;
 
     private SpriteRenderer spriteRenderer;
+    private Vector3 defaultScale;
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        defaultScale = transform.localScale;
     }
 
     private void FixedUpdate()
@@ -42,5 +44,15 @@ public class Paddle : MonoBehaviour
             ball.SetMovementDirection(Vector2.Lerp(maxDirectionLeft, maxDirectionRight, ballDistanceToLeftSide / maxDistanceX).normalized);
             SoundManager.Instance.PlaySoundEffect(ballPaddle);
         }
+    }
+
+    public Vector3 GetDefaultScale()
+    {
+        return defaultScale;
+    }
+
+    public void SetPaddleScale(Vector3 newScale)
+    {
+        transform.localScale = newScale;
     }
 }

@@ -6,15 +6,10 @@ public class ModifierBall : MonoBehaviour
 {
     [SerializeField]
     private Modifier modifierPrefab;
-    [SerializeField]
-    private Sprite modifierSprite;
-
-    private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = modifierSprite;
+        Destroy(gameObject, 3f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

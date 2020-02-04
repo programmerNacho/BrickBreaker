@@ -27,20 +27,36 @@ public class ModifierSystem : MonoBehaviour
 
     public void AddModifier(Modifier modifierPrefab)
     {
+        foreach (Modifier m in modifiersList)
+        {
+            if(m.GetType() == modifierPrefab.GetType())
+            {
+                return;
+            }
+        }
+
         Modifier modifierCreated = Instantiate(modifierPrefab, transform);
+
         if(modifierCreated.GetCancelModifier() != null)
         {
+            List<Modifier> removeModifiers = new List<Modifier>();
+
             foreach (Modifier m in modifiersList)
             {
                 if(m.GetType() == modifierCreated.GetCancelModifier().GetType())
                 {
-                    m.DeActivate();
-                    break;
+                    removeModifiers.Add(m);
                 }
             }
+
+            foreach (Modifier m in removeModifiers)
+            {
+                m.DeActivate();
+            }
         }
-        modifierCreated.Activate();
+
         modifiersList.Add(modifierCreated);
+        modifierCreated.Activate();
     }
 
     public void RemoveModifier(Modifier modifier)
