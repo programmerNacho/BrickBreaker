@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     private Paddle paddle;
 
     private bool gamePaused = false;
+    private bool gameFinished = false;
 
     private void Start()
     {
@@ -31,15 +32,21 @@ public class GameManager : MonoBehaviour
         bricks = new List<Brick>(FindObjectsOfType<Brick>());
         paddle = FindObjectOfType<Paddle>();
         gamePaused = false;
+        gameFinished = false;
         SetGamePaused(gamePaused);
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
+        if(Input.GetKeyDown(KeyCode.P) && !gameFinished)
         {
             SetGamePaused(!gamePaused);
         }
+    }
+
+    public void ResetGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public Paddle GetPaddle()
@@ -60,7 +67,9 @@ public class GameManager : MonoBehaviour
             Destroy(ball.gameObject);
             if(balls.Count <= 0)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                Time.timeScale = 0f;
+                gameFinished = true;
+                UIManager.Instance.GameFinished(false);
             }
         }
     }
@@ -73,7 +82,9 @@ public class GameManager : MonoBehaviour
             Destroy(brick.gameObject);
             if(bricks.Count <= 0)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                Time.timeScale = 0f;
+                gameFinished = true;
+                UIManager.Instance.GameFinished(true);
             }
         }
     }

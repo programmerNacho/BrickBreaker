@@ -17,10 +17,18 @@ public class UIManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        pauseMenu.SetActive(false);
+        loseMenu.SetActive(false);
+        winMenu.SetActive(false);
     }
 
     [SerializeField]
     private GameObject pauseMenu;
+    [SerializeField]
+    private GameObject loseMenu;
+    [SerializeField]
+    private GameObject winMenu;
 
     public void SetPauseMenu(bool value)
     {
@@ -31,5 +39,17 @@ public class UIManager : MonoBehaviour
     {
         GameManager.Instance.SetGamePaused(false);
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void GameFinished(bool win)
+    {
+        if(win)
+        {
+            winMenu.SetActive(true);
+        }
+        else
+        {
+            loseMenu.SetActive(true);
+        }
     }
 }
