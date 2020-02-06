@@ -25,7 +25,17 @@ public class Paddle : MonoBehaviour
         float minX = cameraWorldBounds.minX + spriteWidth / 2f;
         float maxX = cameraWorldBounds.maxX - spriteWidth / 2f;
         Vector3 targetPosition = transform.position;
+        #if UNITY_STANDALONE
         targetPosition.x += Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
+        #elif UNITY_ANDROID
+        if(Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            Vector3 worldTouchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+            targetPosition.x = worldTouchPosition.x;
+        }
+        #endif
         targetPosition.x = Mathf.Clamp(targetPosition.x, minX, maxX);
         transform.position = targetPosition;
     }
