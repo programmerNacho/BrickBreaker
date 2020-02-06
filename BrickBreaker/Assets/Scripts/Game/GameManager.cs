@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0f;
                 gameFinished = true;
                 UIManager.Instance.GameFinished(true);
+                LevelManager.Instance.LevelCompleted(SceneManager.GetActiveScene().name);
             }
         }
     }
