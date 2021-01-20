@@ -1,2 +1,3 @@
 # BrickBreaker
-Game made for a videogame creation course in Sevilla.
+
+This videogame was developed as a teaching resource for the students I had over at Sevilla, Spain.
